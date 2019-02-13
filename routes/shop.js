@@ -1,13 +1,9 @@
 const express=require("express");
 const router=express.Router();
-// const adminData=require("./admin");
+const adminData=require("./admin");
 const fs=require("fs");
+const productController=require("../controllers/products");
 
-router.get("/",(req,res)=>{
-var products =  fs.readFileSync("storage.txt",'utf8');
-console.log(products);    
-    // const products=adminData.products;
-    res.render("shop",{products:products,pageTitle:"Shop"})
-});
+router.get("/",productController.getProducts);
 
 module.exports=router;

@@ -3,7 +3,7 @@ const   express=require("express"),
         bodyParser=require("body-parser"),
         path=require("path"),
         shopRoutes=require("./routes/shop"),
-        adminData=require("./routes/admin");
+        adminRoutes=require("./routes/admin");
 
 //Bodyparser middleware
 // parse application/x-www-form-urlencoded
@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set("view engine","ejs");
 
 app.use(shopRoutes);
-app.use("/admin",adminData.routes);
+app.use("/admin",adminRoutes);
 
 app.listen(8080,()=>{
     console.log("server has started");

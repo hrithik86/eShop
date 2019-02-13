@@ -1,27 +1,9 @@
 const   express=require("express"),
-        router=express.Router();
-        fs=require("fs");
+        router=express.Router(),
+        productsController=require("../controllers/products");
 
-// const products=[];
+router.get("/add-product",productsController.getAddProduct);
 
-router.get("/add-product",(req,res)=>{
-res.render("add-product",{pageTitle:"Add product"});
-});
+router.post("/add-product",productsController.postAddProduct);
 
-router.post("/add-product",(req,res)=>{
-    product={
-        title:req.body.title
-    }
-// products.push(product);
-var data=(JSON.stringify(product));
-fs.appendFile("storage.txt",data,(err)=>{
-    if(err){
-        throw err;
-    }
-    console.log("saved");
-})
-res.redirect("/");
-})
-
-exports.routes=router;
-// exports.products=products;
+module.exports=router;
