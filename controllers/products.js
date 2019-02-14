@@ -8,6 +8,8 @@ exports.postAddProduct=(req,res)=>{
     res.redirect("/");
 }
 exports.getProducts=(req,res)=>{
-    const products=Product.fetchAll();
-    res.render("shop",{products:products,pageTitle:"Shop"})
+    Product.fetchAll(products=>{
+        res.render("shop",{products:products,pageTitle:"Shop"})
+    });
+   
 }
