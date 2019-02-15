@@ -2,8 +2,12 @@ const express=require("express");
 const router=express.Router();
 const adminData=require("./admin");
 const fs=require("fs");
-const productController=require("../controllers/products");
+const shopController=require("../controllers/shop");
 
-router.get("/",productController.getProducts);
+router.get("/",shopController.getIndex);
+router.get("/products",shopController.getProducts);
+router.get("/cart",shopController.getCart);
+router.get("/checkout",shopController.getCheckout);
+
 
 module.exports=router;
