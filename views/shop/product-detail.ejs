@@ -1,0 +1,30 @@
+<%include ../partials/header.ejs%>
+<link rel="stylesheet" href="/css/product.css">
+<body>
+    <%include ../partials/nav.ejs%>
+<% for(var i=0;i<products.length;i++){%>
+    <%if(products[i].id==prodid){%>
+        <article class="card product-item">
+                <header class="card__header">
+                    <h1 class="product__title"><%= products[i].title %></h1>
+                    
+                </header>
+                <div class="card__image">
+                    <img src="<%= products[i].imageUrl %>"
+                        alt="A Book">
+                </div>
+                <div class="card__content">
+                    <h2 class="product__price">$ <%= products[i].price %></h2>
+                    <p class="product__description"><%= products[i].desc %></p>
+                </div>
+                <!-- <div class="card__actions">
+                    <a href="/products/<%=products[i].id%>"><button class="btn">Details</button></a>
+                    <form action="/add-to-cart" method="POST">
+                        <button class="btn">Add to Cart</button>
+                    </form>
+                        
+                </div> -->
+            </article>
+    <%}}%>
+</body>
+<%include ../partials/footer.ejs%>
