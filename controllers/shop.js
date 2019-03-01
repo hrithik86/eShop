@@ -14,6 +14,11 @@ exports.getIndex=(req,res,next)=>{
 exports.getCart=(req,res,next)=>{
     res.render("shop/cart",{pageTitle:"Your cart"});
 }
+
 exports.getCheckout=(req,res,next)=>{
     res.render("shop/checkout",{pageTitle:"Checkout"});
+}
+
+exports.getOrders=(req,res,next)=>{
+    res.render("shop/orders",{pageTitle:"Your Orders"});
 }

@@ -1,5 +1,34 @@
 <%include ../partials/header.ejs%>
+<link rel="stylesheet" href="/css/product.css">
+</head>
 <body>
     <%include ../partials/nav.ejs%>
-</body>
+    <h1>My products</h1>
+    <%if(products.length>0){%>
+        <div class="grid">
+            <%for(var i=0;i<products.length;i++){%>
+                <article class="card product-item">
+                    <header class="card__header">
+                        <h1 class="product__title"><%= products[i].title %></h1>
+                        
+                    </header>
+                    <div class="card__image">
+                        <img src="<%= products[i].imageUrl %>"
+                            alt="A Book">
+                    </div>
+                    <div class="card__content">
+                        <h2 class="product__price">$ <%= products[i].price %></h2>
+                        <p class="product__description"><%= products[i].desc %></p>
+                    </div>
+                    <div class="card__actions">
+                        <a href="/admin/edit-product"><button class="btn">Edit</button></a>
+                        <a href=""><button class="btn">Delete</button></a>
+                    </div>
+                </article>
+            <%}%>
+        </div>
+        
+    <%}else{%>
+        <h3>No products</h3>
+    <%}%>
 <%include ../partials/footer.ejs%>

@@ -17,3 +17,7 @@ exports.getProducts=(req,res,next)=>{
     res.render("admin/products",{products:products,pageTitle:"Shop"})
     });
 }
+
+exports.editProduct=(req,res)=>{
+    res.render("admin/edit-product",{pageTitle:"Edit products"});
+}
